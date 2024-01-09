@@ -104,10 +104,9 @@
     height: 100%;
     gap: 0.15vw;
 }
-#mrc-left, #mrc-left{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+#mrc-right, #mrc-left{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
 }
 .details-text{
     font-size: 1.3vw;
