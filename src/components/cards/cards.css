@@ -1,0 +1,80 @@
+
+#day{
+    display: flex;
+    
+    align-items: center;
+    font-size: 4vw;
+    font-weight: 400;
+}
+#date{
+    transform: translateY(-1.2vw);
+    font-weight: 300;
+    font-size: 1.5vw;
+}
+#left-container{
+    position: relative;
+    height: 100%;
+}
+#temp-container{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 0.4vw;
+    
+}
+#temp-average{
+    font-size: 2vw;
+}
+#temp-feels-like{
+    font-weight: 400;
+    font-size: 1.2vw;
+}
+#high-low-temp-container{
+    position: absolute;
+    margin: auto;
+    width: 100%;
+    
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    
+    gap: 1vw;
+}
+#high-low-temp-container div{
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2vw;
+    gap: 0.05vw;
+
+}
+#high-low-temp-container svg{
+    width: 1vw;
+}
+#high-temp svg{
+    rotate: 180deg;
+}
+.today-card-section{
+    height: 100%;
+}
+#date-container{
+    transform: translateY(-1vw);
+}
+#loading-text{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2vw;
+    font-family: 'Manrope Variable';
+    font-weight: 400;
+
+}
+#today-card-container{
+    overflow: hidden;
+}

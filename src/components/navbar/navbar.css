@@ -1,0 +1,29 @@
+
+
+#theme-switcher-container div{
+    position: absolute;
+}
+#theme-switcher-container:hover{
+    background: var(--button-bg-solid-hover);
+    box-shadow: 0px 0px 25px black;
+  
+    fill: var(--text-col);
+}
+#theme-switcher div{
+    cursor: pointer;
+    font-size: 24px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+#theme-switcher{
+    overflow: hidden;
+    
+}
+
+#light-theme svg{
+    fill: black;
+}
+
