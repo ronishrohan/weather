@@ -8,9 +8,9 @@ import Today from "./components/Today";
 import WeatherCards from "./components/six-day-view/WeatherCards";
 import Gradient from "./components/Gradient";
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
-const animationDelay = 1;
+const animationDelay = 1.2;
 const API_KEY = "7ac740c3a35337c7e81ab9595764b948";
 
 function App() {
@@ -38,21 +38,21 @@ function App() {
         setLoadedData(true);
         async function getWeatherData(lat, long) {
           let req = await fetch(
-            `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&current=temperature_2m,apparent_temperature&hourly=temperature_2m&daily=weather_code,temperature_2m_max,temperature_2m_min`
+            `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&current=temperature_2m,&current=cloud_cover,relative_humidity_2m,apparent_temperature,weather_code,pressure_msl,surface_pressure,wind_speed_10m,wind_direction_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset&wind_speed_unit=ms&timezone=auto`
           );
           let data_req = await req.json();
           setData(data_req);
-          
-          setTimeout(() => {
-            setLoaded(true);
-          }, 1);
+
+          setLoaded(true);
         }
 
         getWeatherData(lat, long);
       }
       function error() {
         console.log("Your browser does not support geolocation api");
-        alert("Your browser does not support geolocation api, please use another browser")
+        alert(
+          "Your browser does not support geolocation api, please use another browser"
+        );
       }
     }
   }, []);
@@ -65,12 +65,32 @@ function App() {
       <div className="outer-container">
         <motion.div
           id="loading"
-          initial={{ scale: 2 }}
-          animate={{ scale: 1 }}
-          transition={{ type: "tween", ease: "anticipate", duration: 1 }}
-          exit={{x:100}}
+          initial={{ opacity: 0, scale: 1, y: 100, fontSize: "72px" }}
+          animate={{ opacity: 1, scale: 1, y: 0, fontSize: "24px" }}
+          transition={{
+            type: "tween",
+            ease: "anticipate",
+            duration: 1,
+            delay: 0.4,
+            opacity: {
+              delay: 0,
+              duration: 0.2,
+            },
+            y: {
+              delay:0,
+              duration: 0.2
+            }
+          }}
+          exit={{ x: 100 }}
         >
-          Hello<motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:1}} >give us a second</motion.div>
+          Hello
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1 }}
+          >
+            give us a second
+          </motion.div>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, scale: 1.5 }}
@@ -84,25 +104,43 @@ function App() {
           className="inner-container"
         >
           <Gradient></Gradient>
-          {loaded ? (
-            <div id="mid-container">
-              <Navbar
-                delay={animationDelay + 1}
-              >{`${location[0]}, ${location[1]}`}</Navbar>
-              <div id="cards-container">
-                <Today
-                  delay={animationDelay + 0.6}
-                  loaded={loaded}
-                  data={data}
-                ></Today>
-                <WeatherCards delay={animationDelay} data={data}  ></WeatherCards>
+          <AnimatePresence>
+            {loaded ? (
+              <div id="mid-container">
+                <Navbar
+                  delay={animationDelay + 1}
+                >{`${location[0]}, ${location[1]}`}</Navbar>
+                <div id="cards-container">
+                  <Today
+                    delay={animationDelay + 0.6}
+                    loaded={loaded}
+                    data={data}
+                  ></Today>
+                  <WeatherCards
+                    delay={animationDelay}
+                    data={data}
+                  ></WeatherCards>
+                </div>
               </div>
-            </div>
-          ) : (
-            <>
-              <div id="loading-main">LOADING</div>
-            </>
-          )}
+            ) : (
+              <>
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    delay: 2.5,
+                    type: "tween",
+                    ease: "anticipate",
+                    duration: 1,
+                  }}
+                  exit={{ opacity: 0 }}
+                  id="loading-main"
+                >
+                  Loading
+                </motion.div>
+              </>
+            )}
+          </AnimatePresence>
         </motion.div>
       </div>
     </>

@@ -31,11 +31,7 @@ function Gradient() {
         className="gradient1"
       ></motion.div></div>
       <div className="gradient2"></div>
-      <svg width="230" height="120" xmlns="http://www.w3.org/2000/svg">
-        <filter id="distort">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="100" />
-        </filter>
-      </svg>
+      
     </>
   );
 }

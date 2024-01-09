@@ -4,3 +4,27 @@
     padding: 20px;
     font-size: 1.4vw;
 }
+.weather-card-min-max{
+    display: flex;
+    font-size: 1.4vw;
+    gap: 0.5vw;
+    position: absolute;
+    top: 0;
+    padding: 20px;
+}
+.weather-code{
+    font-size: 1.2vw;
+    
+    
+}
+.weather-svg-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transform: translateY(-1vw);
+    
+}
+

@@ -2,7 +2,8 @@
 import DigitalClock from "./cards/DigitalClock";
 import Overall from "./cards/Overall";
 import { motion, AnimatePresence } from "framer-motion";
-
+import WeatherDescription from "./cards/WeatherDescription";
+import Details from "./cards/Details";
 function Today(props) {
   
   
@@ -14,8 +15,10 @@ function Today(props) {
   return (
     <>
       <motion.div
-        initial={{ opacity: 0, y: -60 }}
-        animate={{ opacity: 1, y: 0 }}
+        //initial={{ opacity: 0, y: -60, marginLeft: 500,marginRight: 500, }}
+        //animate={{ opacity: 1, y: 0, marginLeft: 0,marginRight: 0 }}
+        initial={{opacity:0,y:-60,width: "20%"}}
+        animate={{opacity:1,y:0,width: "100%"}}
         transition={{
             type: "tween",
             ease: "anticipate",
@@ -37,14 +40,18 @@ function Today(props) {
                 transition={{ ease: "anticipate", duration: 1.5, delay: 0.2 + delay }}
                 className="divider"
               ></motion.div>
-              <div className="today-card-section" id="mid-left"></div>
+              <div className="today-card-section" id="mid-left">
+                <WeatherDescription data={data} ></WeatherDescription>
+              </div>
               <motion.div
                 initial={{ opacity: 0, y: 100, scale: 0.8 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ ease: "anticipate", duration: 1.3, delay: 0.4 + delay }}
                 className="divider"
               ></motion.div>
-              <div className="today-card-section" id="mid-right"></div>
+              <div className="today-card-section" id="mid-right">
+                <Details data={data}></Details>
+              </div>
               <motion.div
                 initial={{ opacity: 0, y: 100, scale: 0.6 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -54,7 +61,7 @@ function Today(props) {
               <motion.div
                 initial={{ opacity: 0, x: 100 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ ease: "anticipate", duration: 1.4, delay: delay + 0.3 }}
+                transition={{ ease: "anticipate", duration: 1.4, delay: delay + 1 }}
                 className="today-card-section"
                 id="right"
               >
