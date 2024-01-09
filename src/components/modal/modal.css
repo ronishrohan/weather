@@ -53,12 +53,12 @@
     align-items: center;
     flex-direction: column;
     gap: 10px;
-    padding: 20px;
+    padding: 15px;
     width: 35vw;
     height: 10vw;
     
     border: 2px solid var(--bg-col);
-    border-radius: 32px;
+    border-radius: 36px;
     backdrop-filter: blur(25px);
     background-color: var(--button-bg);
     color: var(--text-col);
@@ -97,7 +97,7 @@
 }
 
 #modal-submit-button:hover{
-    background-color: rgba(255, 255, 255, 0.308);
+    background-color: rgba(255, 255, 255, 0.185);
     border-color: var(--button-bg-solid-hover);
     
     

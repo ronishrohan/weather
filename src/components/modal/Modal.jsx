@@ -11,6 +11,8 @@ function Modal(props) {
             let data = await res.json();
             console.log(data);
             if(data.length === 0){
+                alert("Please enter valid queries and make sure youve entered the right spellings")
+                queriesRef.current.value = ""
                 return 0;
             }
             else{
@@ -18,6 +20,7 @@ function Modal(props) {
                 let long = data[0].lon;
                 props.handleChangeCoords(lat,long);
                 props.hideModal();
+                queriesRef.current.value = ""
             }
         }
     }
@@ -40,6 +43,11 @@ function Modal(props) {
             ease: "anticipate",
             width:{
                 delay:0.2
+            }
+          }}
+          onKeyPress={(e)=> {
+            if(e.key == "Enter"){
+                getCoords()
             }
           }}
           id="modal-body"

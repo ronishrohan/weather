@@ -11,7 +11,6 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const animationDelay = 1.2;
-const API_KEY = "7ac740c3a35337c7e81ab9595764b948";
 
 function App() {
   let [loadedData, setLoadedData] = useState(false);
@@ -32,11 +31,11 @@ function App() {
         let long = position.coords.longitude;
         
         let response = await fetch(
-          `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&appid=${API_KEY}`
+          `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${long}&zoom=18&addressdetails=1`
         );
         let data_in = await response.json();
 
-        setLocation([data_in[0].name, data_in[0].country]);
+        setLocation([data_in.address.city, data_in.address.country]);
         setLoadedData(true);
         setCoords([position.coords.latitude, position.coords.longitude]);
         
@@ -67,8 +66,16 @@ function App() {
     }
   }, [coords]);
 
-  function handleChangeCoords(lat, long){
-    setCoords([lat,long])
+  async function handleChangeCoords(lat, long){
+    setCoords([lat,long]);
+    let response = await fetch(
+      `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${long}&zoom=18&addressdetails=1`
+    );
+    let data_in = await response.json();
+
+    setLocation([data_in.address.city, data_in.address.country]);
+    
+    
   }
 
   function showModal(){
