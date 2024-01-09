@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 
 function Details(props) {
   let data = props.data;
-  function getTimeFromDate(dateStr) {
+  function getTimeFromDate(dateStr, mod) {
     let date = new Date(dateStr);
-    let hours = Math.abs(date.getHours());
+    let hours = Math.abs(date.getHours() - mod);
     let minutes = date.getMinutes();
     hours = hours < 10 ? "0" + hours : hours;
     minutes = minutes < 10 ? "0" + minutes : minutes;
@@ -57,13 +57,15 @@ function Details(props) {
           <div className="details-container">
             <div>Sunrise</div>
             <div className="details-text">{`${getTimeFromDate(
-              data.daily.sunrise[0]
+              data.daily.sunrise[0],
+              0
             )} am`}</div>
           </div>
           <div className="details-container">
             <div>Sunset</div>
             <div className="details-text">{`${getTimeFromDate(
-              data.daily.sunset[0]
+              data.daily.sunset[0],
+              12
             )} pm`}</div>
           </div>
         </motion.div>
