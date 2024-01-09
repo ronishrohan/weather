@@ -100,6 +100,7 @@
 #mid-right-container{
     font-size: 1.8vw;
     display: grid;
+    width: 100%;
     grid-template-columns: 1fr 1fr;
     height: 100%;
     gap: 0.15vw;

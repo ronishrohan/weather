@@ -1,0 +1,104 @@
+:root{
+    --border-rad: 27px;
+    --bg-bg: rgb(0, 0, 0);
+    --bg-col: rgb(34, 30, 94);
+    --border-col: rgba(255, 255, 255, 0.164);
+    --outer-card-bg: rgb(13, 15, 26);
+    --button-bg:  rgba(0, 0, 0, 0.274);
+    --input-bg:  rgba(209, 209, 209, 0.315);
+    --text-col: white;
+    --text-col-alt: black;
+    --button-bg-solid: rgb(212, 212, 255);
+    --button-bg-solid-hover: rgb(245, 245, 255);
+    --button-bg-solid-static: rgb(184, 184, 235);
+  }
+  [theme="light"]{
+   
+    --bg-col: rgb(255, 67, 67);
+    --outer-card-bg: rgb(255, 236, 195);
+    --border-col: rgba(0, 0, 0, 0.548);
+    --button-bg:  rgba(173, 121, 121, 0.103);
+    --text-col: black;
+    --text-col-alt: white;
+    --button-bg-solid: black;
+    --button-bg-solid-hover: rgb(255, 87, 87);
+    
+    
+  }
+
+#modal-container{
+    z-index: 100;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    
+}
+#modal-backdrop{
+    background-color: rgba(0, 0, 0, 0.288);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+}
+#modal-body{
+    filter: brightness(1.2);
+    position: absolute;
+    
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    width: 35vw;
+    height: 10vw;
+    
+    border: 2px solid var(--bg-col);
+    border-radius: 32px;
+    backdrop-filter: blur(25px);
+    background-color: var(--button-bg);
+    color: var(--text-col);
+    font-family: "Manrope Variable";
+}
+#modal-body input{
+    outline: none;
+    border: 2px solid var(--border-col);
+    background-color: var(--button-bg) ;
+    color: var(--button-bg-solid);
+    font-family: "Manrope Variable";
+    border-radius: 26px;
+    
+    width: 100%;
+    height: 50%;
+    
+    font-size: 1.4vw;
+    text-align: center;
+}
+::placeholder{
+    color: var(--text-col);
+    opacity: 0.3;
+}
+#modal-submit-button{
+    font-size: 1.2vw;
+    cursor: pointer;
+    outline: none;
+    border: 2px solid var(--border-col);
+    background-color: var(--button-bg) ;
+    color: var(--button-bg-solid);
+    font-family: "Manrope Variable";
+    border-radius: 26px;
+    width: 100%;
+    height: 50%;
+    
+}
+
+#modal-submit-button:hover{
+    background-color: rgba(255, 255, 255, 0.308);
+    border-color: var(--button-bg-solid-hover);
+    
+    
+}

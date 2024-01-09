@@ -27,7 +27,7 @@ function Location(props) {
           </svg>
           <div>{props.children}</div>
         </div>
-        <div id="location-picker">
+        <div onClick={props.showModal} id="location-picker">
           <svg
             width="12"
             height="12"

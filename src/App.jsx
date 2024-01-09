@@ -3,7 +3,7 @@ import "./index.css";
 import "@fontsource-variable/bodoni-moda";
 import "@fontsource-variable/manrope";
 import Navbar from "./components/Navbar";
-
+import Modal from "./components/modal/Modal";
 import Today from "./components/Today";
 import WeatherCards from "./components/six-day-view/WeatherCards";
 import Gradient from "./components/Gradient";
@@ -19,6 +19,7 @@ function App() {
   let [coords, setCoords] = useState([0, 0]);
   let [loaded, setLoaded] = useState(false);
   let [data, setData] = useState();
+  let [modalOpened, setModalOpened] = useState(false);
 
   useEffect(() => {
     init();
@@ -26,9 +27,10 @@ function App() {
       await navigator.geolocation.getCurrentPosition(success, error);
 
       async function success(position) {
-        setCoords([position.coords.latitude, position.coords.longitude]);
+        
         let lat = position.coords.latitude;
         let long = position.coords.longitude;
+        
         let response = await fetch(
           `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&appid=${API_KEY}`
         );
@@ -36,17 +38,8 @@ function App() {
 
         setLocation([data_in[0].name, data_in[0].country]);
         setLoadedData(true);
-        async function getWeatherData(lat, long) {
-          let req = await fetch(
-            `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&current=temperature_2m,&current=cloud_cover,relative_humidity_2m,apparent_temperature,weather_code,pressure_msl,surface_pressure,wind_speed_10m,wind_direction_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset&wind_speed_unit=ms&timezone=auto`
-          );
-          let data_req = await req.json();
-          setData(data_req);
-
-          setLoaded(true);
-        }
-
-        getWeatherData(lat, long);
+        setCoords([position.coords.latitude, position.coords.longitude]);
+        
       }
       function error() {
         console.log("Your browser does not support geolocation api");
@@ -54,13 +47,43 @@ function App() {
           "Your browser does not support geolocation api, please use another browser"
         );
       }
+      
     }
   }, []);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    async function getWeatherData(lat, long) {
+      let req = await fetch(
+        `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&current=temperature_2m,&current=cloud_cover,relative_humidity_2m,apparent_temperature,weather_code,pressure_msl,surface_pressure,wind_speed_10m,wind_direction_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset&wind_speed_unit=ms&timezone=auto`
+      );
+      let data_req = await req.json();
+      setData(data_req);
 
+      setLoaded(true);
+    }
+
+    if(coords[0] && coords[1]){
+      getWeatherData(coords[0], coords[1]);
+    }
+  }, [coords]);
+
+  function handleChangeCoords(lat, long){
+    setCoords([lat,long])
+  }
+
+  function showModal(){
+    setModalOpened(true);
+  }
+  function hideModal(){
+    setModalOpened(false);
+  }
+  
   return (
     <>
+      <AnimatePresence>
+
+      {modalOpened && <Modal handleChangeCoords={handleChangeCoords} hideModal={hideModal} ></Modal>}
+      </AnimatePresence>
       <div id="noise"></div>
       <div className="outer-container">
         <motion.div
@@ -77,9 +100,9 @@ function App() {
               duration: 0.2,
             },
             y: {
-              delay:0,
-              duration: 0.2
-            }
+              delay: 0,
+              duration: 0.2,
+            },
           }}
           exit={{ x: 100 }}
         >
@@ -107,7 +130,7 @@ function App() {
           <AnimatePresence>
             {loaded ? (
               <div id="mid-container">
-                <Navbar
+                <Navbar showModal={showModal}
                   delay={animationDelay + 1}
                 >{`${location[0]}, ${location[1]}`}</Navbar>
                 <div id="cards-container">

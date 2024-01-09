@@ -1,6 +1,6 @@
 :root{
   --border-rad: 27px;
-  --bg-bg: rgb(19, 18, 22);
+  --bg-bg: rgb(0, 0, 0);
   --bg-col: rgb(34, 30, 94);
   --border-col: rgba(255, 255, 255, 0.164);
   --outer-card-bg: rgb(13, 15, 26);
@@ -12,7 +12,7 @@
   --button-bg-solid-static: rgb(184, 184, 235);
 }
 [theme="light"]{
-  --bg-bg: rgb(19, 18, 22);
+ 
   --bg-col: rgb(255, 67, 67);
   --outer-card-bg: rgb(255, 236, 195);
   --border-col: rgba(0, 0, 0, 0.548);
@@ -45,14 +45,14 @@
   background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/4k_Dissolve_Noise_Texture.png/2048px-4k_Dissolve_Noise_Texture.png");
   mix-blend-mode: soft-light;
   opacity: 0.4;
-  z-index: 10;
+  z-index: 9999;
 }
 .nav-container svg{
   fill: var(--text-col-alt);
 }
 
 body *{
-  transition: background-color 200ms ease-in-out, border-color 120ms ease-in-out, color 80ms ease-in-out, fill 80ms ease-in-out, box-shadow 120ms ease-in-out;
+  transition: background-color 200ms ease-in-out, border-color 120ms ease-in-out, color 60ms ease-in-out, fill 80ms ease-in-out, box-shadow 120ms ease-in-out;
 }
 
 body{
@@ -277,6 +277,7 @@ body{
   opacity: 75%;
 }
 #weather-cards-container{
+  color: var(--button-bg-solid);
   position: relative;
   
   display: grid;
@@ -295,7 +296,7 @@ body{
   backdrop-filter: blur(10px);
   
   display: flex;
-  color: var(--text-col);
+  
   border-radius: var(--border-rad);
 
   justify-content: center;
@@ -326,11 +327,12 @@ body{
   justify-content: center;
   align-items: center;
   color: white;
-  font-size: 24px;
   flex-direction: column;
 }
 #loading div{
   font-size: 18px;
+  
+  
 }
 #loading-main{
   position: absolute;

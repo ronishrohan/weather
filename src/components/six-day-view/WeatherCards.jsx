@@ -46,7 +46,7 @@ function WeatherCards(props) {
               type: "tween",
               ease: "anticipate",
             }}
-            //transition={{duration: 1.5,delay:delay+1 + (0.1*Math.random(index)), type: "tween", ease: "anticipate"}}
+            //transition={{duration: 1.5,delay:delay+1 + (0.3*Math.random()), type: "tween", ease: "anticipate"}}
             className="weather-card"
             key={index}
           >

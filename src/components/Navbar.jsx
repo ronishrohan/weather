@@ -8,7 +8,7 @@ function Navbar(props) {
     <>
       <div className="nav-container">
         <div className="nav-bg" id="burger-menu"></div>
-        <Location delay={delay} >{props.children}</Location>
+        <Location delay={delay} showModal={props.showModal} >{props.children}</Location>
         <motion.div
           //initial={{ opacity: 0, x:20 }}
           //animate={{ opacity: 1, x:0 }}
