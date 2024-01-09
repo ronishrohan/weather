@@ -10,9 +10,10 @@
   --button-bg-solid: rgb(212, 212, 255);
   --button-bg-solid-hover: rgb(245, 245, 255);
   --button-bg-solid-static: rgb(184, 184, 235);
+  --modal-bg: rgba(0, 0, 0, 0.274);
 }
 [theme="light"]{
- 
+  --modal-bg: rgb(255, 236, 195);
   --bg-col: rgb(255, 67, 67);
   --outer-card-bg: rgb(255, 236, 195);
   --border-col: rgba(0, 0, 0, 0.548);
