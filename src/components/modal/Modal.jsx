@@ -53,7 +53,7 @@ function Modal(props) {
           id="modal-body"
         >
           
-          <input ref={queriesRef} placeholder="enter search queries here, seperated by commas" type="text" />
+          <input autoFocus="autofocus" ref={queriesRef} placeholder="enter search queries here, seperated by commas" type="text" />
           <button id="modal-submit-button" onClick={getCoords} >Search</button>
         </motion.div>
       </motion.div>

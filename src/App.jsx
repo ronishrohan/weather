@@ -35,7 +35,7 @@ function App() {
         );
         let data_in = await response.json();
 
-        setLocation([data_in.address.city, data_in.address.country]);
+        setLocation([data_in.address.city.replace("_", " "), data_in.address.country]);
         setLoadedData(true);
         setCoords([position.coords.latitude, position.coords.longitude]);
         
@@ -73,7 +73,7 @@ function App() {
     );
     let data_in = await response.json();
 
-    setLocation([data_in.address.city, data_in.address.country]);
+    setLocation([data_in.address.city.replace("_", " "), data_in.address.country]);
     
     
   }
