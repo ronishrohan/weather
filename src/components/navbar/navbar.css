@@ -5,7 +5,7 @@
 }
 #theme-switcher-container:hover{
     background: var(--button-bg-solid-hover);
-    box-shadow: 0px 0px 25px black;
+
   
     fill: var(--text-col);
 }
@@ -25,5 +25,42 @@
 
 #light-theme svg{
     fill: black;
+}
+
+#github-container div{
+    position: absolute;
+}
+#github-container:hover{
+    background: var(--button-bg-solid-hover);
+
+  
+    fill: var(--text-col);
+}
+#github-container:active{
+    background: black;
+
+  
+    fill: var(--text-col);
+}
+#github-link div{
+    cursor: pointer;
+    font-size: 24px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+#github-container{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#github-link{
+    overflow: hidden;
+    
 }
 

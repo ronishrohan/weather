@@ -34,9 +34,7 @@
 #theme-switcher-container{
   background-color: var(--button-bg-solid-static);
 }
-#burger-menu{
-  opacity: 0;
-}
+
 #noise{
   pointer-events: none;
   

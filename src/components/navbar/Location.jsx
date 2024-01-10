@@ -15,7 +15,7 @@ function Location(props) {
         }}
         className="middle-nav"
       >
-        <div id="location-display">
+        <div onClick={props.showModal} id="location-display">
           <svg
             width="16"
             height="16"
@@ -27,7 +27,7 @@ function Location(props) {
           </svg>
           <div>{props.children}</div>
         </div>
-        <div onClick={props.showModal} id="location-picker">
+        <div onClick={props.showModal} title="search for another location" id="location-picker">
           <svg
             width="12"
             height="12"
