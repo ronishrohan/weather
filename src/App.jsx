@@ -139,7 +139,7 @@ function App() {
                 <Navbar showModal={showModal}
                   delay={animationDelay + 1}
                 >{`${location[0]}, ${location[1]}`}</Navbar>
-                <div id="cards-container">
+                <motion.div layout id="cards-container">
                   <Today
                     delay={animationDelay + 0.6}
                     loaded={loaded}
@@ -149,7 +149,7 @@ function App() {
                     delay={animationDelay}
                     data={data}
                   ></WeatherCards>
-                </div>
+                </motion.div>
               </div>
             ) : (
               <>
