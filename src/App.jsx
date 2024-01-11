@@ -23,7 +23,7 @@ function App() {
   useEffect(() => {
     init();
     async function init() {
-      await navigator.geolocation.getCurrentPosition(success, error);
+      await navigator.geolocation.getCurrentPosition(success, error, {enableHighAccuracy:true, maximumAge: 10000});
 
       async function success(position) {
         
