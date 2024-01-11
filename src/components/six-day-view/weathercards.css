@@ -27,4 +27,12 @@
     transform: translateY(-1vw);
     
 }
-
+.weather-svg-holder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.weather-svg-holder svg{
+    width: 7vw;
+}

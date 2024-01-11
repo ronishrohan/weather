@@ -96,6 +96,9 @@
     align-items: center;
     padding-top: 1.5vw;
 }
+#weather-code-today-svg-container svg{
+    width: 10vw;
+}
 
 #mid-right-container{
     font-size: 1.8vw;
