@@ -19,7 +19,7 @@ function App() {
   let [loaded, setLoaded] = useState(false);
   let [data, setData] = useState();
   let [modalOpened, setModalOpened] = useState(false);
-
+  let [geolocationSupported, setGeolocationSupported] = useState(true);
   useEffect(() => {
     init();
     async function init() {
@@ -41,10 +41,9 @@ function App() {
         
       }
       function error() {
+        setGeolocationSupported(false)
         console.log("Your browser does not support geolocation api");
-        alert(
-          "Your browser does not support geolocation api, please use another browser"
-        );
+        
       }
       
     }
@@ -166,7 +165,7 @@ function App() {
                   exit={{ opacity: 0 }}
                   id="loading-main"
                 >
-                  Loading
+                  {geolocationSupported ? "Loading" : "Sorry your browser doesnt support this website"}
                 </motion.div>
               </>
             )}
