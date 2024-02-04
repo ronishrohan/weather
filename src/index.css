@@ -232,7 +232,10 @@ body{
 
 
 #cards-container{
-  margin: 15px;
+  padding: 15px;
+  padding-top: 0px;
+  width: 100%;
+  box-sizing: border-box;
   height: calc(100% - 75px);
   position: absolute;
   bottom: 0;
@@ -240,6 +243,7 @@ body{
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  
   
 }
 
