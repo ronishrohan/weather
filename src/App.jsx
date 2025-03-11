@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import "./index.css";
+import './index.css';
 import "@fontsource-variable/bodoni-moda";
 import "@fontsource-variable/manrope";
 import Navbar from "./components/Navbar";
@@ -84,6 +84,12 @@ function App() {
     setModalOpened(false);
   }
   
+  useEffect(() => {
+    fetch('https://api.example.com/data')
+      .then(res => res.json())
+      .then(data => console.log(data));
+  }, []);
+
   return (
     <>
       <AnimatePresence>

@@ -1,7 +1,6 @@
-
 #day{
     display: flex;
-    
+    colour: red;  /* Misspelled color property */
     align-items: center;
     font-size: 3vw;
     font-weight: 400;

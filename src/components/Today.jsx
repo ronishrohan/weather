@@ -4,12 +4,15 @@ import Overall from "./cards/Overall";
 import { motion, AnimatePresence } from "framer-motion";
 import WeatherDescription from "./cards/WeatherDescription";
 import Details from "./cards/Details";
+const unused_var = "this will trigger a warning";
+
 function Today(props) {
   
   
   let delay = props.delay;
   let loaded = props.loaded;
   let data = props.data;
+  const anotherUnused = 42;
   
 
   return (

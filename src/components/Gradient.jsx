@@ -11,7 +11,7 @@ function Gradient() {
     return () => {
       window.removeEventListener("mousemove", updateMousePosition);
     };
-  }, []);
+  }, [mousePosition]);
   return (
     <>
     <div>
