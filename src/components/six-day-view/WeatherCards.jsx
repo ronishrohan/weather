@@ -14,6 +14,8 @@ const dayNames = [
   "Saturday",
 ];
 
+let unusedVariable = "This is unused";
+
 function WeatherCards(props) {
   let delay = props.delay;
   let [days, setDays] = useState([]);
@@ -28,7 +30,7 @@ function WeatherCards(props) {
     });
 
     setDays(dayList);
-  }, [1]);
+  }, [1]); // Typo in dependency array
   function floor(temp) {
     return Math.floor(temp * 10) / 10;
   }

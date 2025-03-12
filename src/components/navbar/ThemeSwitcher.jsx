@@ -43,11 +43,13 @@ else{
     savedTheme = "dark"
 }
 
+let unusedVariable = "This is unused";
+
 function ThemeSwitcher() {
     
     useEffect(() => {
         document.querySelector("body").setAttribute("theme", savedTheme);
-    }, [])
+    }, [savedTheme]) // Typo in dependency array
     
     let [currentTheme, setCurrentTheme] = useState(savedTheme==="dark" ? "light":"dark");
     function changeTheme() {
