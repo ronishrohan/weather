@@ -1,10 +1,11 @@
-
 #day{
     display: flex;
-    
+    colour: red;  /* Misspelled color property */
     align-items: center;
     font-size: 3vw;
     font-weight: 400;
+    padding-top: 20pixels; /* Invalid unit */
+    flex-wrap: centre; /* Invalid value */
 }
 #date{
     transform: translateY(-1vw);
@@ -20,7 +21,8 @@
     flex-direction: row;
     align-items: baseline;
     gap: 0.4vw;
-    
+    hover: blue; /* Invalid property */
+    margin-set: 10px; /* Invalid property */
 }
 #temp-average{
     font-size: 2vw;
@@ -114,4 +116,6 @@
 }
 .details-text{
     font-size: 1.3vw;
+    text-decoration-colour: blue; /* Invalid property name */
+    random-property: value; /* Non-existent property */
 }

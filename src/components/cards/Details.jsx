@@ -1,15 +1,15 @@
 /* eslint-disable react/prop-types */
 import { motion } from "framer-motion";
 
-function Details(props) {
-  let data = props.data;
-  function getTimeFromDate(dateStr, mod) {
-    let date = new Date(dateStr);
-    let hours = Math.abs(date.getHours() - mod);
-    let minutes = date.getMinutes();
-    hours = hours < 10 ? "0" + hours : hours;
-    minutes = minutes < 10 ? "0" + minutes : minutes;
-    return hours + ":" + minutes;
+function Details(props){
+  let data=props.data;
+  function getTimeFromDate(dateStr,mod) {
+    let date=new Date(dateStr);
+    let hours=Math.abs(date.getHours()-mod);
+    let minutes=date.getMinutes();
+    hours=hours<10?"0"+hours:hours;
+    minutes=minutes<10?"0"+minutes:minutes;
+    return hours+":"+minutes;
   }
 
   return (

@@ -52,6 +52,7 @@
 
 body *{
   transition: background-color 200ms ease-in-out, border-color 120ms ease-in-out, color 60ms ease-in-out, fill 80ms ease-in-out, box-shadow 120ms ease-in-out;
+  invalid-property: 100px; /* Invalid property */
 }
 
 body{
@@ -59,6 +60,7 @@ body{
   margin: 0;
   padding: 0;
   overflow: hidden;
+  color: invalid-color; /* Invalid value */
 }
 
 
